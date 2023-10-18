@@ -11,9 +11,14 @@
 <body>
 <%
 // Intento ver si me ha puesto los datos para añadir un nuevo cine
-	Cinema c;
+
 try{
-		c = CineRepository.getCinema(request.getParameter("cine"));
+	if (request.getParameter("edit") != null){
+		Cinema c = new Cinema(request.getParameter("cine"),request.getParameter("ciudad"),request.getParameter("direccion"));
+		CineRepository.annadirCine(c);
+		response.sendRedirect("listCinema.jsp");
+	}
+		Cinema c = CineRepository.getCinema(request.getParameter("cine"));
 	%>
 	<form>
   <div class="form-group row">
@@ -43,15 +48,16 @@ try{
   </div> 
   <div class="form-group row">
     <div class="offset-4 col-8">
-      <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+      <button name="edit" type="submit" class="btn btn-primary">Editar</button>
     </div>
   </div>
 </form>
 
 	<%
-	CineRepository.annadirCine(c);
+
 	} catch (Exception e){
 		// No existe el cine seleccionado
+	response.sendRedirect("listCinema.jsp");
 	}
 
 %>

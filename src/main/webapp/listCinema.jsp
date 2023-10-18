@@ -37,20 +37,20 @@
 	      <td><%=c.getCinema() %></td>
 	      <td><%=c.getAddressCinema() %></td>
 	      <td><%=c.getCityCinema() %></td>
-	      <td><form action="editCinema">
-	      		<input id="cine" name="cine" type="text" value="<%=c.getCinema()%>" hidden>
+	      <td><form action="editCinema.jsp">
+	      		<input id="cine" name="cine" type="text" value='<%=c.getCinema()%>' hidden>
 	      		<div class="form-group row">
 	      			<div class="offset-4 col-8">
-	      				<button name="submit" type="submit" class="btn btn-primary"></button>
+	      				<button name="submit" type="submit" class="btn btn-primary">Editar</button>
 	      			</div>
 	      		</div>
 	      	</form>
 	      </td>
-	      <td><form action="delCinema">
+	      <td><form action="delCinema.jsp">
 	      		<input id="cine" name="cine" type="text" value="<%=c.getCinema()%>" hidden>
 	      		<div class="form-group row">
 	      			<div class="offset-4 col-8">
-	      				<button name="submit" type="submit" class="btn btn-primary"></button>
+	      				<button name="submit" type="submit" class="btn btn-primary">Borrar</button>
 	      			</div>
 	      		</div>
 	      	</form>
